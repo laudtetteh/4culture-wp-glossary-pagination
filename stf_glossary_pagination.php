@@ -2,7 +2,7 @@
 /**
 * These functions programmatically create alphabetical "glossary" taxonomy
 * based on the first letter of the title of each Touring Arts (TAR) post
-* and generate the relevant html for the glossary pagination on
+* and generate the necessary html for the glossary pagination on
 * https://www.4culture.org/touring-arts/all-artists/
 *
 * This happens on post create or post update operations in the WordPress
@@ -10,7 +10,7 @@
 */
 
 /**
-* Add new taxonomy, NOT hierarchical (like tags)
+* Add new `glossary` taxonomy, NOT hierarchical (like tags)
 * for all TAR posts
 *
 * @throws
@@ -18,6 +18,7 @@
 * @return
 */
 function stf_create_glossary_taxonomy(){
+    // Register `glossary` taxonomy, if none exists
     if(!taxonomy_exists('glossary')){
         register_taxonomy('glossary', array('touring_arts'), array(
             'show_ui' => false
